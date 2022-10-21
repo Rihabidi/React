@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre 3 - Activité 1 : Conditional</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- Nous avons transfére l'activité vers ce fichier car l'import des Dossiers de l'App React va prendre énormement de temps-->
+    <div class="content">
+        <div id="root">
+        </div>
+    </div>
+    <script type="text/babel">
+        function App() {
+            const date = new Date();
+            const hour = date.getHours();
+            var Temps='';
+            const styleObject={
+                fontSize: "100",
+                color: ""
+            }
+            if (hour>5 && hour<11) {
+                Temps+='Bonne Journée tout le Monde';
+                styleObject.color="#04567F"
+            } else if (hour>12 && hour<18) {
+                Temps+='Bon Aprés-Midi tout le Monde';
+                styleObject.color="#0914A3"
+            } else {
+                Temps+='Bonne Nuit tout le Monde';
+                styleObject.color="#D90000"
+            }
+            return (
+                <h1 style={styleObject}>{Temps}</h1>
+            );
+        }
+        ReactDOM.render(<App/>, document.getElementById("root"))
+    </script>
+</body>
+</html>
